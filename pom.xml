@@ -1,0 +1,291 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.retest</groupId>
+	<artifactId>surili-parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>${project.artifactId}</name>
+	<description>Surili research project: parent. The parent POM for all surili modules.</description>
+
+	<organization>
+		<name>ReTest GmbH</name>
+		<url>https://retest.de/</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Copyright © 2018-2019 ReTest GmbH. All rights reserved.</name>
+			<url>file:///dev/null</url>
+		</license>
+	</licenses>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+
+		<java.version>1.8</java.version>
+		<junit.jupiter.version>5.4.2</junit.jupiter.version>
+		<maven.surefire.and.failsafe.version>2.22.2</maven.surefire.and.failsafe.version>
+		<maven.javadoc.and.source.version>3.1.0</maven.javadoc.and.source.version>
+
+		<skipTests>false</skipTests>
+		<skipITs>${skipTests}</skipITs>
+		<skipUTs>${skipTests}</skipUTs>
+	</properties>
+
+	<scm>
+		<url>https://bitbucket.org/retest/surili/</url>
+		<connection>scm:git:https://bitbucket.org/retest/surili.git</connection>
+		<developerConnection>scm:git:ssh://git@bitbucket.org/retest/surili.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-retest</id>
+			<url>https://nexus.retest.org/repository/surili/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-retest</id>
+			<url>https://nexus.retest.org/repository/surili-snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- retest dependencies -->
+
+			<dependency>
+				<groupId>de.retest</groupId>
+				<artifactId>recheck</artifactId>
+				<version>1.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>de.retest</groupId>
+				<artifactId>recheck-web</artifactId>
+				<version>1.1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>de.retest</groupId>
+				<artifactId>gui-state-machine-api</artifactId>
+				<version>0.2.2-SNAPSHOT</version>
+			</dependency>
+
+			<!-- other dependencies -->
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.8</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.2.3</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-java</artifactId>
+				<version>3.141.59</version>
+			</dependency>
+			<dependency>
+				<groupId>org.tap4j</groupId>
+				<artifactId>tap4j</artifactId>
+				<!-- issue as of 4.3+: https://github.com/tupilabs/tap4j/issues/56 -->
+				<version>4.2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>one.util</groupId>
+				<artifactId>streamex</artifactId>
+				<version>0.6.8</version>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-api</artifactId>
+				<version>${junit.jupiter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.9.9</version>
+			</dependency>
+			<dependency>
+				<groupId>net.lightbody.bmp</groupId>
+				<artifactId>browsermob-core</artifactId>
+				<version>2.1.5</version>
+			</dependency>
+
+			<!-- test dependencies -->
+
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${junit.jupiter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-params</artifactId>
+				<version>${junit.jupiter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.junit-pioneer</groupId>
+				<artifactId>junit-pioneer</artifactId>
+				<version>0.3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.assertj</groupId>
+				<artifactId>assertj-core</artifactId>
+				<version>3.12.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<!-- issue as of 2.24+: https://github.com/mockito/mockito/issues/1606 -->
+				<version>2.23.4</version>
+			</dependency>
+			<dependency>
+				<groupId>com.approvaltests</groupId>
+				<artifactId>approvaltests</artifactId>
+				<version>3.0.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven.surefire.and.failsafe.version}</version>
+					<configuration>
+						<skipTests>${skipUTs}</skipTests>
+						<properties>
+							<configurationParameters>
+								junit.jupiter.execution.parallel.enabled=true
+								junit.jupiter.execution.parallel.config.dynamic.factor=1
+							</configurationParameters>
+						</properties>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven.surefire.and.failsafe.version}</version>
+					<configuration>
+						<skipTests>${skipTests}</skipTests>
+						<skipITs>${skipITs}</skipITs>
+						<reportsDirectory>${project.build.directory}/surefire-reports/</reportsDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>run-integration-tests</id>
+							<goals>
+								<goal>integration-test</goal>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<goals>install</goals>
+						<tagNameFormat>v@{project.version}</tagNameFormat>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.1.2</version>
+					<configuration>
+						<archive>
+							<manifestEntries>
+								<Built-By>ReTest GmbH</Built-By>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven.javadoc.and.source.version}</version>
+					<executions>
+						<execution>
+							<id>bundle-javadoc</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<!-- see https://bugs.openjdk.java.net/browse/JDK-8212233 -->
+					<configuration>
+						<source>8</source>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven.javadoc.and.source.version}</version>
+					<executions>
+						<execution>
+							<id>bundle-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>allow-snapshots</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>nexus-retest</id>
+					<url>https://nexus.retest.org/repository/all/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+</project>
