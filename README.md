@@ -1,2 +1,3 @@
 # surili-parent
-Parent pom for surili 
+
+Parent POM for the Surili research project.
