@@ -40,9 +40,9 @@
 	</properties>
 
 	<scm>
-		<url>https://bitbucket.org/retest/surili/</url>
-		<connection>scm:git:https://bitbucket.org/retest/surili.git</connection>
-		<developerConnection>scm:git:ssh://git@bitbucket.org/retest/surili.git</developerConnection>
+		<url>https://github.com/retest/surili-parent/</url>
+		<connection>scm:git:https://github.com/retest/surili-parent.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/retest/surili-parent.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
