@@ -72,7 +72,7 @@
 			<dependency>
 				<groupId>de.retest</groupId>
 				<artifactId>gui-state-machine-api</artifactId>
-				<version>0.2.2-SNAPSHOT</version>
+				<version>0.3.0</version>
 			</dependency>
 
 			<!-- other dependencies -->
