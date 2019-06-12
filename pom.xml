@@ -195,6 +195,7 @@
 					<configuration>
 						<skipTests>${skipTests}</skipTests>
 						<skipITs>${skipITs}</skipITs>
+						<!-- see https://stackoverflow.com/a/15567782 -->
 						<reportsDirectory>${project.build.directory}/surefire-reports/</reportsDirectory>
 					</configuration>
 					<executions>
@@ -243,8 +244,8 @@
 							</goals>
 						</execution>
 					</executions>
-					<!-- see https://bugs.openjdk.java.net/browse/JDK-8212233 -->
 					<configuration>
+						<!-- see https://bugs.openjdk.java.net/browse/JDK-8212233 -->
 						<source>8</source>
 					</configuration>
 				</plugin>
