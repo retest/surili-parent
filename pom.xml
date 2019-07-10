@@ -28,7 +28,7 @@
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 
 		<java.version>1.8</java.version>
-		<junit.jupiter.version>5.4.2</junit.jupiter.version>
+		<junit.jupiter.version>5.5.0</junit.jupiter.version>
 		<maven.surefire.and.failsafe.version>2.22.2</maven.surefire.and.failsafe.version>
 		<maven.javadoc.and.source.version>3.1.0</maven.javadoc.and.source.version>
 
