@@ -15,7 +15,7 @@ script: mvn clean verify
 
 deploy:
   - provider: script
-    script: mvn deploy -DskipTests
+    script: mvn deploy -DskipTests --settings .travis.settings.xml
     on:
       tags: true
   - provider: releases
