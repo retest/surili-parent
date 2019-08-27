@@ -247,6 +247,24 @@
 					<configuration>
 						<!-- see https://bugs.openjdk.java.net/browse/JDK-8212233 -->
 						<source>8</source>
+						<!-- see https://blog.codefx.org/java/new-javadoc-tags/#Maven -->
+						<tags>
+							<tag>
+								<name>apiNote</name>
+								<placement>a</placement>
+								<head>API Note:</head>
+							</tag>
+							<tag>
+								<name>implSpec</name>
+								<placement>a</placement>
+								<head>Implementation Requirements:</head>
+							</tag>
+							<tag>
+								<name>implNote</name>
+								<placement>a</placement>
+								<head>Implementation Note:</head>
+							</tag>
+						</tags>
 					</configuration>
 				</plugin>
 
